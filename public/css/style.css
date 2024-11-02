@@ -1,0 +1,84 @@
+/* styles.css */
+
+main {
+  flex: 1;
+  min-height: 100vh; /* ใช้ 100vh เพื่อให้สูงสุดเท่ากับ viewport */
+}
+
+footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* styles.css */
+
+/* CSS สไตล์เดิม */
+.navbar {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar:hover {
+  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link.active { /* ใช้ .active class */
+  color: #DD540D !important; /* เปลี่ยนสีข้อความเมื่อ hover หรือ active */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #DD540D; /* สีเส้นขอบ */
+  transition: width 0.3s, left 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after { /* ใช้ .active class */
+  width: 100%;
+  left: 0;
+}
+
+
+/* styles.css */
+
+/* styles.css */
+
+.carousel-image-overlay {
+  position: relative; /* จัดตำแหน่ง relative สำหรับ overlay */
+}
+
+.carousel-image-overlay img {
+  width: 100%; /* ให้กว้างเต็มที่ */
+  height: auto; /* ควบคุมสัดส่วนตามกว้าง */
+  min-height: 400px; /* กำหนดความสูงขั้นต่ำให้กับภาพ */
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.carousel-image-overlay::after {
+  content: ''; /* เนื้อหาว่างเพื่อสร้าง overlay */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* สีดำที่มีความโปร่งแสง */
+  z-index: 1; /* วาง overlay อยู่เหนือภาพ */
+}
+
+.carousel-caption {
+  z-index: 2; /* ทำให้ caption อยู่เหนือ overlay */
+  color: white; /* ทำให้ข้อความใน caption เป็นสีขาว */
+}
