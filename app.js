@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose')
+const connectDB = require('./db')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,12 +13,13 @@ var newsRouter = require('./routes/news')
 
 var app = express();
 
-const dbURL = `mongodb://localhost:27017/school`
-mongoose.connect(dbURL).then((result)=>{
-  console.log('Mongoose connected succesfiully')
-}).catch((err)=>{
-  console.log(err)
-})
+// const dbURL = `mongodb://localhost:27017/school`
+// mongoose.connect(dbURL).then((result)=>{
+//   console.log('Mongoose connected succesfiully')
+// }).catch((err)=>{
+//   console.log(err)
+// })
+connectDB()
 
 
 // view engine setup
