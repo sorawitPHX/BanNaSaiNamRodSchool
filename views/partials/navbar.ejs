@@ -1,14 +1,14 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-light shadow-sm fixed-top" >
     <div class="container">
       <a class="navbar-brand" href="/">
         <div class="d-flex flex-row">
           <img class="rounded-circle me-3" height="70px" src="/images/logo.jpg" alt="logo">
           <div class="d-flex flex-column justify-content-center text-muted">
-            <span>BanNasai-Namrod School</span>
+            <span><small>BanNasai-Namrod School</small></span>
             <hr class="m-0 p-0">
             <span>
-              โรงเรียนบ้านนาทรายน้ำรอด
+              <small>โรงเรียนบ้านนาทรายน้ำรอด</small>
             </span>
           </div>
         </div>
@@ -19,23 +19,35 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/">หน้าแรก</a>
+              <a class="nav-link normal" href="/">หน้าแรก</a>
+            </li>
+            <div class="border"></div>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                เกี่ยวกับโรงเรียน
+              </a>
+              <ul class="dropdown-menu rounded-0 px-2 py-3">
+                <li><a class="nav-link normal dropdown-item pe-3" href="/history">ประวัติโรงเรียน</a></li>
+                <li><a class="nav-link normal dropdown-item pe-3" href="#">ข้อมูลโรงเรียน</a></li>
+                <!-- <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+              </ul>
             </li>
             <div class="border"></div>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/about">ประวัติโรงเรียน</a>
+              <a class="nav-link normal" href="/services">ฝ่ายบริการ</a>
             </li>
             <div class="border"></div>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/info">ข้อมูลโรงเรียน</a>
+              <a class="nav-link normal" href="/staff">ข้อมูลบุคลากร</a>
             </li>
             <div class="border"></div>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/services">ฝ่ายบริการ</a>
+              <a class="nav-link normal" href="/contact">ติดต่อสอบถาม</a>
             </li>
             <div class="border"></div>
             <li class="nav-item mx-2">
-              <a class="nav-link" href="/staff">ข้อมูลบุคลากร</a>
+              <a class="nav-link normal" href="#">เพิ่มเติม</a>
             </li>
           </ul>
       </div>

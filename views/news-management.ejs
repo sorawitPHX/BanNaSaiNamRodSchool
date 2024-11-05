@@ -1,9 +1,27 @@
 <!-- views/index.ejs -->
+<style>
+  #thumbnail-preview {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+</style>
 <div class="container mt-5">
   <div class="mb-4">
-    <form action="/news-management/insert" method="post">
+    <form id="newsForm" method="post" enctype="multipart/form-data" class="shadow rounded-5 p-4">
       <div class="text-center">
         <h1>เพิ่มข่าวสาร</h1>
+      </div>
+      <div class="form-group mb-3">
+        <label for="thumbnail_img" class="form-label">รูปภาพหน้าปก | Thumbnail</label>
+        <input class="form-control" type="file" name="thumbnail_img" id="thumbnail_img" accept=".jpg, .jpeg, .png" >
+      </div>
+      <div class="mb-3">
+        <img hidden class="img-thumbnail" src="#" alt="รูปภาพหน้าปกข่าวสาร" id="thumbnail-preview">
+      </div>
+      <div class="form-group mb-3">
+        <label class="form-label" for="date">วันที่ของข่าว (กำหนดเองได้)</label>
+        <input type="date" class="form-control" name="post_date" id="post_date" value="<%= new Date().toISOString().split('T')[0] %>"></input>
       </div>
       <div class="form-group mb-3">
         <label class="form-label" for="title">หัวข้อ | Title</label>
@@ -18,8 +36,9 @@
         <label class="mb-2" for="content-body">เนื้อหา | Content</label>
         <textarea id="content-body">เขียนรายละเอียดตรงนี้</textarea>
       </div>
+      
       <div class="mb-3 text-end">
-        <button class="btn btn-primary" type="button" id="submit-btn">โพสต์ข่าวสาร</button>
+        <button class="btn btn-primary" type="submit" id="submit-btn">โพสต์ข่าวสาร</button>
       </div>
       <div id="test-get-text">
       </div>
@@ -28,6 +47,7 @@
 </div>
 <!-- Script element sourcing TinyMCE -->
 <script type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+<script type="application/javascript" src="/sweetalert2/sweetalert2.all.min.js"></script>
 <!-- Script element sourcing the TinyMCE configuration -->
 <script type="application/javascript" src="/js/my-tinymce-config.js"></script>
 <script type="application/javascript" src="/js/news-management.js"></script>

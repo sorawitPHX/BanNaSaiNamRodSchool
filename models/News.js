@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const NewsSchema = new Schema({
+    post_date: {
+        type: Date,
+        required: true
+    },
     title: {
         type: String,
         required: true

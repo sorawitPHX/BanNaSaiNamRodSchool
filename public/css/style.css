@@ -1,6 +1,62 @@
 /* styles.css */
+/* นำเข้า LINESeedSansTH แบบ Regular */
+@font-face {
+  font-family: 'LINESeedSansTH';
+  src: url('/font/LINESeedSansTH/LINESeedSansTH_Rg.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
 
-main {
+/* นำเข้า LINESeedSansTH แบบ Bold */
+@font-face {
+  font-family: 'LINESeedSansTH';
+  src: url('/font/LINESeedSansTH/LINESeedSansTH_Bd.ttf') format('truetype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+/* นำเข้า LINESeedSansTH แบบ Extra Bold */
+@font-face {
+  font-family: 'LINESeedSansTH';
+  src: url('/font/LINESeedSansTH/LINESeedSansTH_XBd.ttf') format('truetype');
+  font-weight: 800; /* Extra Bold */
+  font-style: normal;
+}
+
+/* นำเข้า LINESeedSansTH แบบ Heavy */
+@font-face {
+  font-family: 'LINESeedSansTH';
+  src: url('/font/LINESeedSansTH/LINESeedSansTH_He.ttf') format('truetype');
+  font-weight: 900; /* Heavy */
+  font-style: normal;
+}
+
+/* นำเข้า LINESeedSansTH แบบ Thin */
+@font-face {
+  font-family: 'LINESeedSansTH';
+  src: url('/font/LINESeedSansTH/LINESeedSansTH_Th.ttf') format('truetype');
+  font-weight: 100; /* Thin */
+  font-style: normal;
+}
+
+body {
+  font-family: 'LINESeedSansTH', sans-serif;
+  font-weight: 400;
+}
+
+/* ใช้ตัวหนา */
+h1 {
+  font-family: 'LINESeedSansTH', sans-serif;
+  font-weight: 700; /* Bold */
+}
+
+/* ใช้ตัวบาง */
+p {
+  font-family: 'LINESeedSansTH', sans-serif;
+  font-weight: 400; /* Thin */
+}
+
+.content {
   flex: 1;
   min-height: 100vh; /* ใช้ 100vh เพื่อให้สูงสุดเท่ากับ viewport */
 }
@@ -30,21 +86,23 @@ footer {
 }
 
 .nav-link.active { /* ใช้ .active class */
-  color: #DD540D !important; /* เปลี่ยนสีข้อความเมื่อ hover หรือ active */
+  color: #DD540D !important; 
+  /* color: #a200ff !important; เปลี่ยนสีข้อความเมื่อ hover หรือ active */
 }
 
-.nav-link::after {
+.nav-link.normal::after {
   content: '';
   position: absolute;
   left: 50%;
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #DD540D; /* สีเส้นขอบ */
+  background: #DD540D;
+  /* background: #a200ff; สีเส้นขอบ */
   transition: width 0.3s, left 0.3s;
 }
 
-.nav-link:hover::after,
+.nav-link.normal:hover::after,
 .nav-link.active::after { /* ใช้ .active class */
   width: 100%;
   left: 0;

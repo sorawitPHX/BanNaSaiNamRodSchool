@@ -1,0 +1,41 @@
+<style>
+    #news-banner {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        position: relative;
+        background-color: #000;
+    }
+    #news-banner::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.5;
+
+        background-image: url('/images/banner_04.jpg');
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    #news-banner .banner-content {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+<div id="news-banner">
+    <div class="banner-content container">
+        <div class="text-center text-white">
+            <h5 class="d-inline bg-warning rounded-5 p-2 px-5 shadow">ประชาสัมพันธ์</h5>
+            <br>
+            <br>
+            <h3 class="d-inline border-bottom border-white "><%= news.title %></h3>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <%- decodeURIComponent(news.content.body) %>
+</div>

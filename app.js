@@ -6,19 +6,14 @@ var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose')
 const connectDB = require('./db')
+const upload = require('./middlewares/uploadMiddleware')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var newsRouter = require('./routes/news')
+var newsManagementRouter = require('./routes/news-management')
 
 var app = express();
-
-// const dbURL = `mongodb://localhost:27017/school`
-// mongoose.connect(dbURL).then((result)=>{
-//   console.log('Mongoose connected succesfiully')
-// }).catch((err)=>{
-//   console.log(err)
-// })
 connectDB()
 
 
@@ -37,10 +32,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* New Route to the TinyMCE Node module */
 app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+app.use('/sweetalert2', express.static(path.join(__dirname, 'node_modules', 'sweetalert2', 'dist')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/news-management', newsRouter)
+app.use('/news', newsRouter)
+app.use('/news-management', newsManagementRouter)
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+  }
+  // ส่ง URL ของรูปภาพกลับไปให้ TinyMCE เพื่อแสดง
+  res.json({ location: `/uploads/${req.file.filename}` });
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
